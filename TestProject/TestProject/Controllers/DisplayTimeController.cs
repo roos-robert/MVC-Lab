@@ -4,14 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace HelloWorld.Controllers
+namespace TestProject.Controllers
 {
-    public class Default1Controller : Controller
+    public class DisplayTimeController : Controller
     {
         //
-        // GET: /Default1/
+        // GET: /DisplayTime/
         public ActionResult Index()
         {
+            ViewData["CurrentTime"] = DateTime.Now.ToString();
             return View();
         }
 	}
