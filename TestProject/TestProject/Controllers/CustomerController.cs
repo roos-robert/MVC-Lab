@@ -11,12 +11,18 @@ namespace TestProject.Controllers
     {
         //
         // GET: /Customer/
+
+        public ActionResult FillCustomer()
+        {
+            return View();
+        }
+
         public ActionResult DisplayCustomer()
         {
             Customer customer = new Customer();
-            customer.Id = 404;
-            customer.CustomerCode = "AD";
-            customer.Amount = 101.90;
+            customer.Id = Convert.ToInt16(Request.Form["CustomerId"]);
+            customer.CustomerCode = Request.Form["CustomerCode"];
+            customer.Amount = Convert.ToDouble(Request.Form["Amount"]);
             return View(customer);
         }
 	}
