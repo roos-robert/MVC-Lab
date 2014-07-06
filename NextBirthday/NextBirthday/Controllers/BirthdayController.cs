@@ -16,16 +16,10 @@ namespace NextBirthday.Controllers
             return View("Index");
         }
 
-        [HttpPost, ActionName("Index")]
-        public ActionResult Index_POST()
+        [HttpPost]
+        public ActionResult Index(Birthday birthday)
         {
-            var model = new Birthday
-            {
-                Name = Request.Form["name"],
-                Birthdate = DateTime.Parse(Request.Form["birthdate"])
-            };
-
-            return View("UpcomingBirthday", model);
+           return View("UpcomingBirthday", birthday);
         }
 	}
 }
