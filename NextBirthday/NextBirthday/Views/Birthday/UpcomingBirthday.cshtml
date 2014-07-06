@@ -9,10 +9,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>UpcomingBirthday</title>
+    <title>Next birthday</title>
 </head>
 <body>
-    <div> 
-    </div>
+    <h1>Next birthday</h1>
+    <p>@Model.Name will be turning @Model.Age on a @Model.NextBirthdayDate.ToString("dddd") in @Model.DaysUntilNextBirthday days.</p>
+    <p>@Html.ActionLink("Go back", "Index")</p>
 </body>
 </html>
