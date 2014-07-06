@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,9 +9,11 @@ namespace NextBirthday.Models
 {
     public class Birthday
     {
-        [DisplayName("Birthdate - YYYY-MM-DD")]
+        [Required(ErrorMessage="A birthdate must be entered.")]
+        [DisplayName("Birthdate")]
         public DateTime Birthdate { get; set; }
 
+        [Required(ErrorMessage = "A name must be entered.")]
         [DisplayName("Your name")]
         public string Name { get; set; }
 

@@ -10,16 +10,22 @@ namespace NextBirthday.Controllers
     public class BirthdayController : Controller
     {
         //
-        // GET: /Birthday/
+        // GET: /Birthday/Index
         public ActionResult Index()
         {
             return View("Index");
         }
 
+        // POST: /Birthday/Index
         [HttpPost]
         public ActionResult Index(Birthday birthday)
         {
-           return View("UpcomingBirthday", birthday);
+            if (ModelState.IsValid)
+            {
+                return View("UpcomingBirthday", birthday);
+            }
+
+            return View("Index", birthday);
         }
 	}
 }
