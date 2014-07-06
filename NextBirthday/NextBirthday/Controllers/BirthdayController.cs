@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NextBirthday.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,19 @@ namespace NextBirthday.Controllers
         // GET: /Birthday/
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
+        }
+
+        [HttpPost, ActionName("Index")]
+        public ActionResult Index_POST()
+        {
+            var model = new Birthday
+            {
+                Name = Request.Form["name"],
+                Birthdate = DateTime.Parse(Request.Form["birthdate"])
+            };
+
+            return View("UpcomingBirthday", model);
         }
 	}
 }
