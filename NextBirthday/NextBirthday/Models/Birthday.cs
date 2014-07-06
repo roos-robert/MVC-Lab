@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -7,8 +8,10 @@ namespace NextBirthday.Models
 {
     public class Birthday
     {
+        [DisplayName("Birthdate - YYYY-MM-DD")]
         public DateTime Birthdate { get; set; }
 
+        [DisplayName("Your name")]
         public string Name { get; set; }
 
         public int Age
