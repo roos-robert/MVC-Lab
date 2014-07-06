@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <div>
+        <script language="javascript">
+            function getJson() {
+                $.getJSON("/Json/getJson", null, Display);
+                return true;
+            }
+            function Display(data) {
+                alert(data.CustomerCode);
+            }
+        </script>
+        <input type="button" value="See Json data" onclick="return getJson();" /> 
+    </div>
+</body>
+</html>
