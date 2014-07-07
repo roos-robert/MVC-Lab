@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace NextBirthday.Controllers
 {
@@ -13,7 +14,16 @@ namespace NextBirthday.Controllers
         // GET: /Birthday/Index
         public ActionResult Index()
         {
-            throw new NotImplementedException();
+            var path = Server.MapPath("~/App_Data/birthdates.xml");
+            var doc = XDocument.Load(path);
+            var model = (from birthdate in doc.Descendants("birthdate")
+                         select new Birthday
+                         {
+                             Name = birthdate.Element("name").Value,
+                             Birthdate = DateTime.Parse(birthdate.Element("date").Value)
+                         }).ToList();
+
+            return View("Index", model);
         }
 
         // GET: /Birthday/Create
