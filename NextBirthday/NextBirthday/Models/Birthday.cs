@@ -11,12 +11,14 @@ namespace NextBirthday.Models
     {
         [Required(ErrorMessage="A birthdate must be entered.")]
         [DisplayName("Birthdate")]
+        [DataType(DataType.Date)]
         public DateTime Birthdate { get; set; }
 
         [Required(ErrorMessage = "A name must be entered.")]
         [DisplayName("Your name")]
         public string Name { get; set; }
 
+        [ScaffoldColumn(false)]
         public int Age
         {
             get
@@ -25,6 +27,7 @@ namespace NextBirthday.Models
             }
         }
 
+        [ScaffoldColumn(false)]
         public int DaysUntilNextBirthday
         {
             get
@@ -33,6 +36,7 @@ namespace NextBirthday.Models
             }
         }
 
+        [ScaffoldColumn(false)]
         public DateTime NextBirthdayDate
         {
             get

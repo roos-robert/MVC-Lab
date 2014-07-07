@@ -13,17 +13,23 @@ namespace NextBirthday.Controllers
         // GET: /Birthday/Index
         public ActionResult Index()
         {
-            return View("Index");
+            throw new NotImplementedException();
         }
 
-        // POST: /Birthday/Index
+        // GET: /Birthday/Create
+        public ActionResult Create()
+        {
+            return View("Create");
+        }
+
+        // POST: /Birthday/Create
         [HttpPost]
-        public ActionResult Index(Birthday birthday)
+        public ActionResult Create(Birthday birthday)
         {
             // Checking that correct values has been entered, and that the birthdate acctually is in the past.
             if (ModelState.IsValid && birthday.Birthdate < DateTime.Today)
             {
-                return View("UpcomingBirthday", birthday);
+                return View("Create", birthday);
             }
 
             ModelState.AddModelError("Birthdate", "Your birthdate can't possibly be a date that has not passed!");
