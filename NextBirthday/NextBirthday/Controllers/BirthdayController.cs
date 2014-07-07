@@ -24,6 +24,7 @@ namespace NextBirthday.Controllers
 
         // POST: /Birthday/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Birthday birthday)
         {
             // Checking that correct values has been entered, and that the birthdate acctually is in the past.
