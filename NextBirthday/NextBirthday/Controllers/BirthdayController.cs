@@ -40,11 +40,23 @@ namespace NextBirthday.Controllers
             // Checking that correct values has been entered, and that the birthdate acctually is in the past.
             if (ModelState.IsValid && birthday.Birthdate < DateTime.Today)
             {
-                return View("Create", birthday);
+                var path = Server.MapPath("~/App_Data/birthdates.xml");
+                var doc = XDocument.Load(path);
+
+                // Creating the new element to be inserted to the XML-file.
+                var element = new XElement("birthdate",
+                    new XElement("name", birthday.Name),
+                    new XElement("date", birthday.Birthdate));
+
+                // Adding to structure (end of), and saving to file.
+                doc.Root.Add(element);
+                doc.Save(path);
+
+                return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("Birthdate", "Your birthdate can't possibly be a date that has not passed!");
-            return View("Index", birthday);
+            return View("Create", birthday);
         }
 	}
 }

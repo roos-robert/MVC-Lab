@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <birthdates>
   <birthdate>
     <name>Robert Roos</name>
@@ -11,5 +11,9 @@
   <birthdate>
     <name>Manny Dunn</name>
     <date>1971-02-02T00:00:00</date>
+  </birthdate>
+  <birthdate>
+    <name>Adam</name>
+    <date>2013-10-10T00:00:00</date>
   </birthdate>
 </birthdates>
