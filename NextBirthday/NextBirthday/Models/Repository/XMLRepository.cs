@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace NextBirthday.Models.Repository
 {
-    public class XMLRepository
+    public class XMLRepository : IRepository
     {
         private static readonly string PhysicalPath;
 
@@ -25,7 +25,7 @@ namespace NextBirthday.Models.Repository
             PhysicalPath = HttpContext.Current.Server.MapPath("~/App_Data/birthdates.xml");
         }
 
-        public List<Birthday> GetBirthdays()
+        public IEnumerable<Birthday> GetBirthdays()
         {
             return (from birthdate in Document.Descendants("birthdate")
                     select new Birthday

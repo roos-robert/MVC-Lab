@@ -11,7 +11,18 @@ namespace NextBirthday.Controllers
 {
     public class BirthdayController : Controller
     {
-        private XMLRepository _repository = new XMLRepository();
+        private IRepository _repository;
+
+        public BirthdayController()
+            : this(new EFRepository())
+        {
+            // This should be empty.
+        }
+
+        public BirthdayController(IRepository repository)
+        {
+            _repository = repository;
+        }
 
         //
         // GET: /Birthday/Index

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace NextBirthday.Models.Repository
 {
-    public class EFRepository
+    public class EFRepository : IRepository
     {
         private birthdatesEntities _entities = new birthdatesEntities();
 
