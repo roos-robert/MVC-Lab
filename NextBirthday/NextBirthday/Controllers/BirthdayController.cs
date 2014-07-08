@@ -25,7 +25,7 @@ namespace NextBirthday.Controllers
         }
 
         //
-        // GET: /Birthday/Index
+        // GET: /Birthday/
         public ActionResult Index()
         {
             return View("Index", _repository.GetBirthdays());
@@ -52,6 +52,18 @@ namespace NextBirthday.Controllers
 
             ModelState.AddModelError("Birthdate", "Your birthdate can't possibly be a date that has not passed!");
             return View("Create", birthday);
+        }
+
+        // GET: /Birthday/Edit
+        public ActionResult Edit(int birthdayId = 0)
+        {
+            var birthday = _repository.GetBirthdayById(birthdayId);
+            if (birthday == null)
+            {
+                return View("NotFound");
+            }
+
+            return View("Edit", birthday);
         }
 
         protected override void Dispose(bool disposing)
