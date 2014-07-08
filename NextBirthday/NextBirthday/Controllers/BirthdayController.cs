@@ -66,6 +66,22 @@ namespace NextBirthday.Controllers
             return View("Edit", birthday);
         }
 
+        // POST: /Birthday/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Birthday birthday)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.UpdateBirthday(birthday);
+                _repository.Save();
+
+                return View("Saved", birthday);
+            }
+
+            return View("Edit", birthday);
+        }
+
         protected override void Dispose(bool disposing)
         {
             _repository.Dispose();

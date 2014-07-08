@@ -1,0 +1,15 @@
+﻿@model NextBirthday.Models.Birthday
+
+@{
+    ViewBag.Title = "The birthday has been saved";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h1>The birthday has been saved</h1>
+
+<p>
+    The birthday for <strong>@Model.Name</strong>, <strong>@Model.Birthdate.ToShortDateString()</strong> has been saved.
+</p>
+<p>
+    @Html.ActionLink("Back to the birthday listnings", "Index")
+</p>
