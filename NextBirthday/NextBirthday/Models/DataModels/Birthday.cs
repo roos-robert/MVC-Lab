@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NextBirthday.Models.DataModels
+namespace NextBirthday.Models
 {
     using System;
     using System.Collections.Generic;

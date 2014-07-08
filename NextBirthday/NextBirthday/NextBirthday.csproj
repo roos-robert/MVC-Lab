@@ -38,7 +38,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -77,10 +85,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\birthdates.mdf" />
     <Content Include="App_Data\birthdates.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Data\birthdates_log.ldf">
+      <DependentUpon>birthdates.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\DataModels\GeekBirthdayModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GeekBirthdayModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataModels\GeekBirthdayModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GeekBirthdayModel.edmx</DependentUpon>
+      <LastGenOutput>GeekBirthdayModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataModels\GeekBirthdayModel.edmx.diagram">
+      <DependentUpon>GeekBirthdayModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DataModels\GeekBirthdayModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GeekBirthdayModel.edmx</DependentUpon>
+      <LastGenOutput>GeekBirthdayModel.cs</LastGenOutput>
+      <CustomToolNamespace>NextBirthday.Models</CustomToolNamespace>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -99,6 +129,24 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Birthday.cs" />
+    <Compile Include="Models\DataModels\Birthday.cs">
+      <DependentUpon>GeekBirthdayModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\GeekBirthdayModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeekBirthdayModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\GeekBirthdayModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeekBirthdayModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\GeekBirthdayModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeekBirthdayModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Repository\XMLRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,8 +163,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\DataModels\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

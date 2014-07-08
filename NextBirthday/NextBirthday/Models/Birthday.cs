@@ -7,17 +7,9 @@ using System.Web;
 
 namespace NextBirthday.Models
 {
-    public class Birthday
+    [MetadataType(typeof(Birthday_Metadata))]
+    public partial class Birthday
     {
-        [Required(ErrorMessage="A birthdate must be entered.")]
-        [DisplayName("Birthdate")]
-        [DataType(DataType.Date)]
-        public DateTime Birthdate { get; set; }
-
-        [Required(ErrorMessage = "A name must be entered.")]
-        [DisplayName("Your name")]
-        public string Name { get; set; }
-
         [ScaffoldColumn(false)]
         public int Age
         {
@@ -50,6 +42,18 @@ namespace NextBirthday.Models
 
                 return nextBirthday;
             }
+        }
+
+        public class Birthday_Metadata
+        {
+            [Required(ErrorMessage = "A birthdate must be entered.")]
+            [DisplayName("Birthdate")]
+            [DataType(DataType.Date)]
+            public DateTime Birthdate { get; set; }
+
+            [Required(ErrorMessage = "A name must be entered.")]
+            [DisplayName("Your name")]
+            public string Name { get; set; }
         }
     }
 }
