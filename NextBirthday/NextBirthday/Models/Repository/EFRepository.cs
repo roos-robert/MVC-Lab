@@ -6,7 +6,7 @@ using System.Web;
 
 namespace NextBirthday.Models.Repository
 {
-    public class EFRepository : IRepository
+    public class EFRepository : IRepository, IDisposable
     {
         private birthdatesEntities _entities = new birthdatesEntities();
 
@@ -24,5 +24,29 @@ namespace NextBirthday.Models.Repository
         {
             _entities.SaveChanges();
         }
+
+        #region IDisposable
+
+        private bool _disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if(!this._disposed)
+            {
+                if (disposing)
+                {
+                    _entities.Dispose();
+                }
+            }
+            this._disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
     }
 }
