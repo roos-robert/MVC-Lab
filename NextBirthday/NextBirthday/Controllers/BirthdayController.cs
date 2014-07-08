@@ -53,5 +53,11 @@ namespace NextBirthday.Controllers
             ModelState.AddModelError("Birthdate", "Your birthdate can't possibly be a date that has not passed!");
             return View("Create", birthday);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _repository.Dispose();
+            base.Dispose(disposing);
+        }
 	}
 }

@@ -47,5 +47,10 @@ namespace NextBirthday.Models.Repository
         {
             Document.Save(PhysicalPath);
         }
+
+        public void Dispose()
+        {
+            // Empty.
+        }
     }
 }
