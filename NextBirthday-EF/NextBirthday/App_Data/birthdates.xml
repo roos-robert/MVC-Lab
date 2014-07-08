@@ -20,4 +20,8 @@
     <name>Sven</name>
     <date>1945-08-17T00:00:00</date>
   </birthdate>
+  <birthdate>
+    <name>Bobby</name>
+    <date>2013-10-10T00:00:00</date>
+  </birthdate>
 </birthdates>
