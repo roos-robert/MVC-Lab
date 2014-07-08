@@ -55,9 +55,9 @@ namespace NextBirthday.Controllers
         }
 
         // GET: /Birthday/Edit
-        public ActionResult Edit(int birthdayId = 0)
+        public ActionResult Edit(int Id = 0)
         {
-            var birthday = _repository.GetBirthdayById(birthdayId);
+            var birthday = _repository.GetBirthdayById(Id);
             if (birthday == null)
             {
                 return View("NotFound");
