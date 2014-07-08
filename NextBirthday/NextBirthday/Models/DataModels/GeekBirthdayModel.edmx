@@ -58,6 +58,23 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="NextBirthday.Models.DataModels.Birthday">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="NextBirthday.Models.DataModels.Store.InsertBirthday">
+                  <ScalarProperty Name="Birthdate" ParameterName="Birthdate" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="BirthdayId" ColumnName="NewBirthdayId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="NextBirthday.Models.DataModels.Store.UpdateBirthday">
+                  <ScalarProperty Name="Birthdate" ParameterName="Birthdate" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="BirthdayId" ParameterName="BirthdayId" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="NextBirthday.Models.DataModels.Store.DeleteBirthday">
+                  <ScalarProperty Name="BirthdayId" ParameterName="BirthdayId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
