@@ -14,7 +14,8 @@
         {
             <li>
                 <strong>@Html.DisplayFor(modelItem => item.Name)</strong> will be turning @Html.DisplayFor(modelItem => item.Age) on a
-                @item.NextBirthdayDate.ToString("dddd") <strong>in @Html.DisplayFor(modelItem => item.DaysUntilNextBirthday) days</strong>.
+                @item.NextBirthdayDate.ToString("dddd") <strong>in @Html.DisplayFor(modelItem => item.DaysUntilNextBirthday) days</strong>. 
+                @Html.ActionLink("Edit", "Edit", new { id = item.BirthdayId })
             </li>
         }
     </ul>

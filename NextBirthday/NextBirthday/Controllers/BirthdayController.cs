@@ -71,12 +71,19 @@ namespace NextBirthday.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Birthday birthday)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _repository.UpdateBirthday(birthday);
-                _repository.Save();
+                if (ModelState.IsValid)
+                {
+                    _repository.UpdateBirthday(birthday);
+                    _repository.Save();
 
-                return View("Saved", birthday);
+                    return View("Saved", birthday);
+                }
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(String.Empty, "An error occured when trying to update the birthday.");
             }
 
             return View("Edit", birthday);
