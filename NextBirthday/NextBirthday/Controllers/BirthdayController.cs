@@ -40,7 +40,7 @@ namespace NextBirthday.Controllers
         // POST: /Birthday/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Birthday birthday)
+        public ActionResult Create([Bind(Include="Name, Birthdate")]Birthday birthday)
         {
             // Checking that correct values has been entered, and that the birthdate acctually is in the past.
             if (ModelState.IsValid && birthday.Birthdate < DateTime.Today)
