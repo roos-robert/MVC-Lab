@@ -161,6 +161,7 @@
     <Content Include="Views\Birthday\Saved.cshtml" />
     <Content Include="Views\Birthday\Delete.cshtml" />
     <Content Include="Views\Birthday\Deleted.cshtml" />
+    <Content Include="Views\Birthday\_BirthdayForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

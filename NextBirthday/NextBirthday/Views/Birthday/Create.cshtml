@@ -7,32 +7,7 @@
 
 <h1>Add a new birthday</h1>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "An error occured, correct the invalid data and try again")
-    
-    <div>
-        @Html.LabelFor(model => model.Name):
-    </div>
-    <div style="margin-bottom: 10px;">
-        @Html.EditorFor(model => model.Name)
-        @Html.ValidationMessageFor(model => model.Name)
-    </div>
-    <div>
-        @Html.LabelFor(model => model.Birthdate):
-    </div>
-    <div>
-        @Html.EditorFor(model => model.Birthdate)
-        @Html.ValidationMessageFor(model => model.Birthdate)
-    </div>
-
-    <div>
-        <p>
-            <input type="submit" value="Add birthday" />
-        </p>
-    </div> 
-}
+@Html.Partial("_BirthdayForm")
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

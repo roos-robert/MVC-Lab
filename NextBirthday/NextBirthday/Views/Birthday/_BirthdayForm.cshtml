@@ -1,0 +1,33 @@
+﻿@model NextBirthday.Models.Birthday
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "An error occured, correct the invalid data and try again")
+    @Html.HiddenFor(model => model.BirthdayId)
+
+    <div>
+        @Html.LabelFor(model => model.Name):
+    </div>
+    <div style="margin-bottom: 10px;">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Birthdate):
+    </div>
+    <div>
+        @Html.EditorFor(model => model.Birthdate)
+        @Html.ValidationMessageFor(model => model.Birthdate)
+    </div>
+
+    <div>
+        <p>
+            <input type="submit" value="Update birthday" />
+        </p>
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to listing", "Index")
+</p>
