@@ -1,17 +1,24 @@
-﻿@Model System.String
+﻿@model System.String
 
 @{
     ViewBag.Title = "Hello!";
+    var ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "result"
+    };
 }
 
-@using (Html.BeginForm())
+@using (Ajax.BeginForm("HelloAjax", ajaxOptions))
 {
     @Html.AntiForgeryToken()
-    @Html.TextBox("greeting")
-    <input type="submit" value="Post the greeting (non-ajax)" />
+    <div style="margin-bottom: 10px;">
+        @Html.TextBox("greeting")
+    </div>
+    <div>
+        <input type="submit" class="btn btn-default" value="Post the greeting" />
+    </div>
 }
 
-<div id="result">
+<div id="result" style="margin-top: 50px;">
     @Model
 </div>
-

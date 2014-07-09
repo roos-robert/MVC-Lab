@@ -15,13 +15,21 @@ namespace HelloAjax.Controllers
             return View("Index");
         }
 
-        // POST: /Hello/
+        //// POST: /Hello/
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Index(string greeting)
+        //{
+        //    ViewData.Model = greeting;
+        //    return View("Index");
+        //}
+
+        // POST: /HelloAjax/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(string greeting)
+        public string HelloAjax(string greeting)
         {
-            ViewData.Model = greeting;
-            return View("Index");
+            return "Your greeting: " + greeting;
         }
 	}
 }
