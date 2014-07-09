@@ -101,6 +101,26 @@ namespace NextBirthday.Controllers
             return View("Delete", birthday);
         }
 
+        // POST: /Birthday/Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete_Post(int Id = 0)
+        {
+            try
+            {
+                _repository.DeleteBirthday(Id);
+                _repository.Save();
+
+                return View("Deleted");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(String.Empty, "An error occured when trying to delete the birthday.");
+            }
+
+            return View("Delete", _repository.GetBirthdayById(Id));
+        }
+
         protected override void Dispose(bool disposing)
         {
             _repository.Dispose();

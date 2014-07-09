@@ -9,25 +9,14 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Birthday</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Birthdate)
+            @Model.Name
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Birthdate)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Model.Birthdate.ToShortDateString()
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
