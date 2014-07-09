@@ -27,9 +27,14 @@ namespace HelloAjax.Controllers
         // POST: /HelloAjax/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public string HelloAjax(string greeting)
+        public ActionResult HelloAjax(string greeting)
         {
-            return "Your greeting: " + greeting;
+            if(Request.IsAjaxRequest())
+            {
+                return Content("Your greeting: " + greeting);
+            }
+
+            return View("Index", greeting);
         }
 	}
 }
