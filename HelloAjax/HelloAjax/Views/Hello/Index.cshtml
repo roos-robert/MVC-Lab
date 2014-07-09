@@ -1,0 +1,17 @@
+﻿@Model System.String
+
+@{
+    ViewBag.Title = "Hello!";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBox("greeting")
+    <input type="submit" value="Post the greeting (non-ajax)" />
+}
+
+<div id="result">
+    @Model
+</div>
+
