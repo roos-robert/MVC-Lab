@@ -89,6 +89,18 @@ namespace NextBirthday.Controllers
             return View("Edit", birthday);
         }
 
+        // GET: /Birthday/Delete
+        public ActionResult Delete(int Id = 0)
+        {
+            var birthday = _repository.GetBirthdayById(Id);
+            if (birthday == null)
+            {
+                return View("NotFound");
+            }
+
+            return View("Delete", birthday);
+        }
+
         protected override void Dispose(bool disposing)
         {
             _repository.Dispose();
