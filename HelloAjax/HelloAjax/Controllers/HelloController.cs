@@ -34,7 +34,7 @@ namespace HelloAjax.Controllers
                 return Content("Your greeting: " + greeting);
             }
 
-            return View("Index", greeting);
+            return View("Index", (object)greeting);
         }
 	}
 }
