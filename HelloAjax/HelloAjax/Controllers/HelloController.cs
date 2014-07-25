@@ -31,7 +31,7 @@ namespace HelloAjax.Controllers
         {
             if(Request.IsAjaxRequest())
             {
-                return Content("Your greeting: " + greeting);
+                return PartialView("_Greeting", greeting);
             }
 
             return View("Index", (object)greeting);
