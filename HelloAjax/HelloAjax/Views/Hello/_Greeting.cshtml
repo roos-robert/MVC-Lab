@@ -1,5 +1,7 @@
 ﻿@model System.String
-
+@if (!String.IsNullOrWhiteSpace(Model))
+{
 <p>
-    Din hälsning: @Model
+    <b>Din hälsning:</b> @Model
 </p>
+}
